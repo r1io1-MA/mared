@@ -11,6 +11,12 @@
     <style>
       body {
         font-family: 'Tajawal', sans-serif;
+        /* A deep slate background for the glass effect to pop */
+        background-color: #020617; /* slate-950 */
+        /* Subtle gradients to create a more dynamic background */
+        background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.15), transparent 50%),
+                          radial-gradient(circle at 80% 90%, rgba(34, 211, 238, 0.15), transparent 50%);
+        background-attachment: fixed;
       }
       @keyframes slide-in-up {
         from {
@@ -25,6 +31,34 @@
       .animate-slide-in-up {
         animation: slide-in-up 0.5s ease-out forwards;
       }
+      
+      /* Main glass panel style */
+      .glass-panel {
+        background: rgba(30, 41, 59, 0.5); /* slate-800 @ 50% */
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Darker glass panel for nested elements */
+      .glass-panel-darker {
+        background: rgba(15, 23, 42, 0.5); /* slate-900 @ 50% */
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Glass style for inputs, textareas, and selects */
+      .glass-input {
+        background: rgba(15, 23, 42, 0.6) !important; /* slate-900 @ 60% */
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        transition: background-color 0.2s ease, border-color 0.2s ease;
+      }
+      .glass-input:focus {
+        background: rgba(15, 23, 42, 0.8) !important;
+        border-color: rgba(56, 189, 248, 0.5) !important;
+        outline: none; /* Remove default focus outline */
+        box-shadow: none;
+        ring-width: 0;
+      }
     </style>
   <script type="importmap">
 {
@@ -38,7 +72,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-900 text-white">
+  <body class="text-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

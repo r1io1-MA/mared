@@ -41,7 +41,7 @@ const IdeasBank: React.FC = () => {
         <p className="text-slate-400 mt-2">اختر مجالاً، والمارد يلهمك بأفكار جديدة ومبتكرة.</p>
       </div>
 
-      <div className="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700">
+      <div className="glass-panel p-6 rounded-2xl shadow-lg">
         <h3 className="text-lg font-bold text-slate-300 mb-4">اختر كلمة مفتاحية:</h3>
         <div className="flex flex-wrap gap-3">
           {keywords.map(keyword => (
@@ -50,7 +50,7 @@ const IdeasBank: React.FC = () => {
               onClick={() => handleKeywordClick(keyword)}
               disabled={isLoading}
               className={`px-4 py-2 rounded-full font-semibold transition-all duration-200
-                ${selectedKeyword === keyword ? 'bg-blue-600 text-white ring-2 ring-blue-400' : 'bg-slate-700 hover:bg-slate-600'}
+                ${selectedKeyword === keyword ? 'bg-blue-600 text-white ring-2 ring-blue-400' : 'bg-white/5 hover:bg-white/10'}
                 disabled:opacity-50 disabled:cursor-not-allowed`}
             >
               {keyword}
@@ -61,7 +61,7 @@ const IdeasBank: React.FC = () => {
 
       <div className="mt-8">
         {isLoading && (
-          <div className="flex flex-col items-center justify-center bg-slate-800 p-6 rounded-2xl min-h-[200px]">
+          <div className="flex flex-col items-center justify-center glass-panel p-6 rounded-2xl min-h-[200px]">
             <BrainCircuitIcon className="w-12 h-12 text-blue-400 animate-pulse mb-3" />
             <p className="text-lg font-bold text-slate-300">المارد يستلهم الأفكار...</p>
           </div>
@@ -75,7 +75,7 @@ const IdeasBank: React.FC = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-slate-200">أفكار مقترحة لـ "{selectedKeyword}":</h3>
             {ideas.map((idea, index) => (
-              <div key={index} className="bg-slate-800 p-4 rounded-xl border border-slate-700 flex justify-between items-center gap-4">
+              <div key={index} className="glass-panel p-4 rounded-xl flex justify-between items-center gap-4">
                 <p className="text-slate-200">{idea}</p>
                 <CopyButton textToCopy={idea} />
               </div>

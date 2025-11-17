@@ -40,22 +40,22 @@ const NodeComponent: React.FC<{ node: MindMapNode; onExpand: (node: MindMapNode)
 
     return (
         <div className="flex items-center my-2">
-            <div className={`relative bg-slate-800 border-r-4 ${borderColor} p-3 rounded-lg shadow-md flex-1`}>
+            <div className={`relative glass-panel p-3 rounded-lg shadow-md flex-1 border-r-4 ${borderColor}`}>
                  <div className="flex justify-between items-center">
                     <p className="text-slate-200">{node.text}</p>
                     <div className="flex items-center gap-2 flex-shrink-0 mr-2">
                         {node.isLoading && <div className="w-4 h-4 border-2 border-slate-500 border-t-slate-200 rounded-full animate-spin"></div>}
                         {isExpandable && (
-                            <button onClick={() => onExpand(node)} className="p-1 bg-slate-700 hover:bg-slate-600 rounded-full" title="توسيع الفكرة">
+                            <button onClick={() => onExpand(node)} className="p-1 bg-slate-700/50 hover:bg-slate-600/50 rounded-full" title="توسيع الفكرة">
                                 <PlusIcon className="w-4 h-4" />
                             </button>
                         )}
                         {node.type === 'idea' && (
                             <>
-                                <button onClick={() => onAction(node, 'content')} className="p-1 bg-slate-700 hover:bg-slate-600 rounded-full" title="تحويل لمحتوى">
+                                <button onClick={() => onAction(node, 'content')} className="p-1 bg-slate-700/50 hover:bg-slate-600/50 rounded-full" title="تحويل لمحتوى">
                                     <PenIcon className="w-4 h-4 text-blue-300" />
                                 </button>
-                                <button onClick={() => onAction(node, 'image')} className="p-1 bg-slate-700 hover:bg-slate-600 rounded-full" title="توليد صورة">
+                                <button onClick={() => onAction(node, 'image')} className="p-1 bg-slate-700/50 hover:bg-slate-600/50 rounded-full" title="توليد صورة">
                                     <CameraIcon className="w-4 h-4 text-teal-300" />
                                 </button>
                             </>
@@ -106,17 +106,17 @@ const ActionModal: React.FC<{ node: MindMapNode; action: 'content' | 'image'; br
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
-            <div className="bg-slate-800 rounded-2xl border border-slate-700 p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="glass-panel p-6 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-300">
                         {action === 'content' ? 'المحتوى المولّد' : 'الصورة المولّدة'}
                     </h3>
-                    <button onClick={onClose} className="p-2 hover:bg-slate-700 rounded-full"><CloseIcon className="w-6 h-6"/></button>
+                    <button onClick={onClose} className="p-2 hover:bg-slate-700/50 rounded-full"><CloseIcon className="w-6 h-6"/></button>
                 </div>
                 {isLoading && <div className="flex justify-center p-8"><BrainCircuitIcon className="w-12 h-12 animate-pulse"/></div>}
                 {error && <p className="text-red-400">{error}</p>}
                 {content && (
-                    <div className="space-y-4 bg-slate-900/50 p-4 rounded-lg">
+                    <div className="space-y-4 glass-panel-darker p-4 rounded-lg">
                         <div className="flex justify-between items-start">
                            <h4 className="font-bold text-blue-300">نص البوست:</h4>
                            <CopyButton textToCopy={content.contentCreation.post_text} />
@@ -244,16 +244,16 @@ const MindMapPage: React.FC = () => {
                 <p className="text-slate-400 mt-2">حوّل فكرة واحدة إلى شبكة من المحتوى الإبداعي المنظم.</p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 space-y-4 mb-8">
+            <div className="glass-panel p-6 rounded-2xl shadow-lg space-y-4 mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <input
                         type="text"
                         value={mainTopic}
                         onChange={(e) => setMainTopic(e.target.value)}
                         placeholder="اكتب الفكرة المحورية هنا..."
-                        className="md:col-span-2 w-full p-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-2 focus:ring-purple-500"
+                        className="md:col-span-2 w-full p-3 glass-input rounded-lg"
                     />
-                     <select value={selectedVoiceId} onChange={(e) => setSelectedVoiceId(e.target.value)} className="w-full p-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-1 focus:ring-teal-500">
+                     <select value={selectedVoiceId} onChange={(e) => setSelectedVoiceId(e.target.value)} className="w-full p-3 glass-input rounded-lg">
                         <option value="">تطبيق هوية (اختياري)</option>
                         {savedVoices.map(voice => (
                             <option key={voice.id} value={voice.id}>{voice.name}</option>

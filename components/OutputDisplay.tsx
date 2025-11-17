@@ -15,7 +15,7 @@ interface OutputDisplayProps {
 }
 
 const ImageLoadingSkeleton: React.FC = () => (
-    <div className="bg-slate-700 animate-pulse w-full aspect-square rounded-lg flex items-center justify-center">
+    <div className="bg-slate-700/50 animate-pulse w-full aspect-square rounded-lg flex items-center justify-center">
         <CameraIcon className="w-12 h-12 text-slate-500" />
     </div>
 );
@@ -24,7 +24,7 @@ const ImageLoadingSkeleton: React.FC = () => (
 const OutputDisplay: React.FC<OutputDisplayProps> = ({ response, isLoading, error, generatedImage, isImageLoading, onRegenerateImage, onScamperClick }) => {
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 min-h-[400px]">
+      <div className="flex flex-col items-center justify-center glass-panel p-6 rounded-2xl shadow-lg min-h-[400px]">
         <BrainCircuitIcon className="w-16 h-16 text-blue-400 animate-pulse mb-4" />
         <p className="text-xl font-bold text-slate-300">يفكر ويبدع...</p>
         <p className="text-slate-400">المارد بيفكر بس ثواني...</p>
@@ -42,8 +42,8 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({ response, isLoading, erro
 
   if (!response) {
     return (
-      <div className="flex flex-col items-center justify-center bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 min-h-[400px]">
-        <div className="w-24 h-24 bg-slate-700 rounded-full flex items-center justify-center mb-4">
+      <div className="flex flex-col items-center justify-center glass-panel p-6 rounded-2xl shadow-lg min-h-[400px]">
+        <div className="w-24 h-24 bg-slate-700/50 rounded-full flex items-center justify-center mb-4">
           <SparklesIcon className="w-12 h-12 text-slate-500" />
         </div>
         <p className="text-xl font-bold text-slate-300">النتائج ستظهر هنا</p>
@@ -56,11 +56,11 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({ response, isLoading, erro
 
   return (
     <div className="space-y-6">
-      <div className="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700">
+      <div className="glass-panel p-6 rounded-2xl shadow-lg">
         <h3 className="text-2xl font-bold mb-4 text-blue-300">إبداع المحتوى</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
-                <div className="bg-slate-900 p-4 rounded-lg h-full flex flex-col">
+                <div className="glass-panel-darker p-4 rounded-lg h-full flex flex-col">
                     <div className="flex justify-between items-center mb-2">
                         <h4 className="flex items-center gap-2 font-semibold text-slate-300"><PenIcon className="w-5 h-5" /> نص البوست</h4>
                         <div className="flex items-center gap-2">
@@ -76,7 +76,7 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({ response, isLoading, erro
                     </div>
                     <p className="text-slate-200 whitespace-pre-wrap flex-1">{contentCreation.post_text}</p>
                 </div>
-                <div className="bg-slate-900 p-4 rounded-lg">
+                <div className="glass-panel-darker p-4 rounded-lg">
                     <h4 className="flex items-center gap-2 font-semibold text-slate-300 mb-2"><HashtagIcon className="w-5 h-5" /> الهاشتاقات</h4>
                     <div className="flex flex-wrap gap-2">
                     {contentCreation.hashtags.map((tag, i) => (
@@ -86,16 +86,16 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({ response, isLoading, erro
                 </div>
             </div>
             <div className="space-y-4">
-                <div className="bg-slate-900 p-4 rounded-lg">
+                <div className="glass-panel-darker p-4 rounded-lg">
                     <div className="flex justify-between items-center mb-2">
                         <h4 className="flex items-center gap-2 font-semibold text-slate-300"><CameraIcon className="w-5 h-5" /> الصورة المولّدة</h4>
                         <button onClick={onRegenerateImage} disabled={isImageLoading} className="text-xs bg-slate-700 hover:bg-slate-600 px-2 py-1 rounded-md disabled:opacity-50">إعادة توليد</button>
                     </div>
                     {isImageLoading ? <ImageLoadingSkeleton /> : (
-                        generatedImage ? <img src={`data:image/jpeg;base64,${generatedImage}`} alt="Generated content" className="w-full h-auto rounded-lg" /> : <div className="w-full aspect-square bg-slate-700 rounded-lg flex items-center justify-center"><p className="text-slate-400">لم يتم توليد صورة</p></div>
+                        generatedImage ? <img src={`data:image/jpeg;base64,${generatedImage}`} alt="Generated content" className="w-full h-auto rounded-lg" /> : <div className="w-full aspect-square bg-slate-700/50 rounded-lg flex items-center justify-center"><p className="text-slate-400">لم يتم توليد صورة</p></div>
                     )}
                 </div>
-                 <div className="bg-slate-900 p-4 rounded-lg">
+                 <div className="glass-panel-darker p-4 rounded-lg">
                     <div className="flex justify-between items-center mb-2">
                         <h4 className="flex items-center gap-2 font-semibold text-slate-300 text-sm">وصف الصورة (Prompt)</h4>
                         <CopyButton textToCopy={contentCreation.image_prompt} />
@@ -106,17 +106,17 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({ response, isLoading, erro
         </div>
       </div>
 
-      <div className="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700">
+      <div className="glass-panel p-6 rounded-2xl shadow-lg">
         <h3 className="text-2xl font-bold mb-4 text-teal-300">تكييف للمنصات</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-slate-900 p-4 rounded-lg">
+          <div className="glass-panel-darker p-4 rounded-lg">
             <div className="flex justify-between items-center mb-2">
               <h4 className="flex items-center gap-2 font-semibold text-slate-300"><TwitterIcon className="w-5 h-5" /> نسخة منصة X</h4>
               <CopyButton textToCopy={platformAdaptation.twitter_version} />
             </div>
             <p className="text-slate-200 whitespace-pre-wrap">{platformAdaptation.twitter_version}</p>
           </div>
-          <div className="bg-slate-900 p-4 rounded-lg">
+          <div className="glass-panel-darker p-4 rounded-lg">
              <div className="flex justify-between items-center mb-2">
                <h4 className="flex items-center gap-2 font-semibold text-slate-300"><LinkedinIcon className="w-5 h-5" /> نسخة LinkedIn</h4>
                <CopyButton textToCopy={platformAdaptation.linkedin_version} />
@@ -126,16 +126,16 @@ const OutputDisplay: React.FC<OutputDisplayProps> = ({ response, isLoading, erro
         </div>
       </div>
       
-      <div className="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700">
+      <div className="glass-panel p-6 rounded-2xl shadow-lg">
         <h3 className="text-2xl font-bold mb-4 text-purple-300">أفكار استراتيجية</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-           <div className="bg-slate-900 p-4 rounded-lg">
+           <div className="glass-panel-darker p-4 rounded-lg">
               <h4 className="flex items-center gap-2 font-semibold text-slate-300 mb-2"><LightbulbIcon className="w-5 h-5" /> خطافات (Hooks) مقترحة</h4>
               <ul className="list-disc list-inside space-y-2 text-slate-200">
                 {strategicInsights.hook_suggestion.map((hook, i) => <li key={i}>{hook}</li>)}
               </ul>
             </div>
-             <div className="bg-slate-900 p-4 rounded-lg">
+             <div className="glass-panel-darker p-4 rounded-lg">
                <div className="flex justify-between items-center mb-2">
                  <h4 className="flex items-center gap-2 font-semibold text-slate-300"><ArrowRightIcon className="w-5 h-5" /> فكرة للخطوة التالية</h4>
                  <CopyButton textToCopy={strategicInsights.next_step_idea} />

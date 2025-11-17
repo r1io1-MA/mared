@@ -9,9 +9,9 @@ interface TrendSuggestionCardProps {
 
 const TrendSuggestionCard: React.FC<TrendSuggestionCardProps> = ({ suggestion, onUse, onDiscard }) => {
   return (
-    <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 space-y-4 transition-all hover:border-teal-500/50">
+    <div className="glass-panel p-6 rounded-2xl space-y-4 transition-all hover:border-teal-500/50">
       <h3 className="text-lg font-bold text-teal-300">{suggestion.trendTitle}</h3>
-      <div className="bg-slate-900 p-4 rounded-lg">
+      <div className="glass-panel-darker p-4 rounded-lg">
         <p className="text-slate-200 whitespace-pre-wrap">{suggestion.draftPost}</p>
       </div>
       <div className="flex items-center justify-end gap-3 pt-2">

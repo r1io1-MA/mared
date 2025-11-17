@@ -59,10 +59,10 @@ const useLocalStorage = <T,>(key: string, initialValue: T): [T, React.Dispatch<R
 };
 
 const AgencyCard: React.FC<{ agency: Agency, onDelete: (name: string) => void }> = ({ agency, onDelete }) => (
-  <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between relative group">
+  <div className="glass-panel p-6 rounded-2xl flex flex-col justify-between relative group">
     <button
       onClick={() => onDelete(agency.name)}
-      className="absolute top-3 left-3 p-1.5 bg-slate-700 rounded-full text-slate-400 hover:bg-red-800 hover:text-white transition-all opacity-0 group-hover:opacity-100"
+      className="absolute top-3 left-3 p-1.5 bg-slate-700/50 rounded-full text-slate-400 hover:bg-red-800 hover:text-white transition-all opacity-0 group-hover:opacity-100"
       title="حذف الوكالة"
     >
       <TrashIcon className="w-4 h-4" />
@@ -75,7 +75,7 @@ const AgencyCard: React.FC<{ agency: Agency, onDelete: (name: string) => void }>
       href={agency.website} 
       target="_blank" 
       rel="noopener noreferrer" 
-      className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold bg-slate-700 text-slate-200 px-4 py-2 rounded-lg hover:bg-slate-600 transition-colors"
+      className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-semibold bg-slate-700/70 text-slate-200 px-4 py-2 rounded-lg hover:bg-slate-600/70 transition-colors"
     >
       <span>زيارة الموقع الإلكتروني</span>
       <ExternalLinkIcon className="w-4 h-4" />
@@ -110,7 +110,7 @@ const ScoutingPage: React.FC = () => {
     }
   };
 
-  const inputStyles = "w-full p-2 bg-slate-700 border border-slate-600 rounded-md focus:ring-1 focus:ring-teal-500";
+  const inputStyles = "w-full p-2 glass-input rounded-md";
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -123,7 +123,7 @@ const ScoutingPage: React.FC = () => {
       <div className="mb-8 text-center">
         <button 
             onClick={() => setIsFormVisible(!isFormVisible)}
-            className="inline-flex items-center gap-2 px-6 py-2 font-bold bg-slate-800 border border-slate-700 rounded-lg hover:bg-slate-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2 font-bold bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
         >
             <PlusIcon className="w-5 h-5" />
             {isFormVisible ? 'إغلاق النموذج' : 'إضافة موقع وكالة'}
@@ -131,14 +131,14 @@ const ScoutingPage: React.FC = () => {
       </div>
 
       {isFormVisible && (
-        <div className="mb-10 bg-slate-800/50 border border-slate-700 p-6 rounded-2xl max-w-2xl mx-auto">
+        <div className="mb-10 glass-panel p-6 rounded-2xl max-w-2xl mx-auto animate-slide-in-up">
             <form onSubmit={handleAddAgency} className="space-y-4">
                 <h3 className="text-lg font-bold text-center text-slate-200">إضافة موقع جديد لقائمة الإلهام</h3>
                 <input type="text" name="name" value={newAgency.name} onChange={handleInputChange} placeholder="اسم الوكالة" required className={inputStyles} />
                 <textarea name="description" value={newAgency.description} onChange={handleInputChange} placeholder="وصف قصير" rows={2} className={inputStyles}></textarea>
                 <input type="url" name="website" value={newAgency.website} onChange={handleInputChange} placeholder="رابط الموقع الإلكتروني" required className={inputStyles} />
                 <div className="flex gap-4 pt-2">
-                    <button type="button" onClick={() => setIsFormVisible(false)} className="w-full py-2 px-4 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors">إلغاء</button>
+                    <button type="button" onClick={() => setIsFormVisible(false)} className="w-full py-2 px-4 rounded-lg bg-slate-700/70 hover:bg-slate-600/70 transition-colors">إلغاء</button>
                     <button type="submit" className="w-full py-2 px-4 font-bold rounded-lg bg-teal-600 hover:bg-teal-500 transition-colors">حفظ الموقع</button>
                 </div>
             </form>

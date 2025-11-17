@@ -86,7 +86,7 @@ const TrendRadarPage: React.FC<TrendRadarPageProps> = ({ setActiveView }) => {
         <p className="text-slate-400 mt-2">مسودات جاهزة من المارد لأبرز الترندات في مجالك. كن سبّاقًا دائمًا.</p>
       </div>
       
-       <div className="bg-slate-800 p-6 rounded-2xl border border-slate-700 mb-8">
+       <div className="glass-panel p-6 rounded-2xl mb-8">
         <h3 className="text-xl font-bold mb-4 text-slate-200">إضافة ترند يدويًا</h3>
         <form onSubmit={handleAddTrend} className="space-y-4">
           <div className="space-y-2">
@@ -100,7 +100,7 @@ const TrendRadarPage: React.FC<TrendRadarPageProps> = ({ setActiveView }) => {
                 value={trendDescription}
                 onChange={(e) => {setTrendDescription(e.target.value); setError(null);}}
                 placeholder="مثال: نقاش دائر حول مستقبل العمل عن بعد في السعودية"
-                className="w-full p-2 bg-slate-700 border border-slate-600 rounded-md focus:ring-1 focus:ring-teal-500"
+                className="w-full p-2 glass-input rounded-md"
               />
           </div>
           <div className="space-y-2">
@@ -114,7 +114,7 @@ const TrendRadarPage: React.FC<TrendRadarPageProps> = ({ setActiveView }) => {
                 value={trendLink}
                 onChange={(e) => setTrendLink(e.target.value)}
                 placeholder="ألصق رابط خبر، مقال، أو منشور هنا..."
-                className="w-full p-2 bg-slate-700 border border-slate-600 rounded-md focus:ring-1 focus:ring-teal-500"
+                className="w-full p-2 glass-input rounded-md"
               />
           </div>
            <div className="space-y-2">
@@ -127,7 +127,7 @@ const TrendRadarPage: React.FC<TrendRadarPageProps> = ({ setActiveView }) => {
                 type="file" 
                 accept="image/*"
                 onChange={(e) => setAttachedImage(e.target.files ? e.target.files[0] : null)}
-                className="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-700 file:text-teal-300 hover:file:bg-slate-600"
+                className="w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white/10 file:text-teal-300 hover:file:bg-white/20"
               />
           </div>
           <button 
@@ -154,7 +154,7 @@ const TrendRadarPage: React.FC<TrendRadarPageProps> = ({ setActiveView }) => {
             ))}
         </div>
       ) : (
-        <div className="text-center bg-slate-800 p-8 rounded-2xl border border-slate-700">
+        <div className="text-center glass-panel p-8 rounded-2xl">
             <p className="text-slate-400">لا توجد اقتراحات جديدة في الوقت الحالي.</p>
             <p className="text-slate-500 text-sm mt-1">المارد يراقب السوق وسيعلمك بأي جديد.</p>
         </div>

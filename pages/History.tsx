@@ -33,8 +33,8 @@ const HistoryCard: React.FC<{ item: HistoryItem; onDelete: (id: string) => void;
     const [isExpanded, setIsExpanded] = useState(false);
     
     return (
-        <div className="bg-slate-800 rounded-2xl border border-slate-700 overflow-hidden">
-            <button onClick={() => setIsExpanded(!isExpanded)} className="w-full p-4 flex justify-between items-center text-left bg-slate-800 hover:bg-slate-700/50">
+        <div className="glass-panel rounded-2xl overflow-hidden">
+            <button onClick={() => setIsExpanded(!isExpanded)} className="w-full p-4 flex justify-between items-center text-left hover:bg-white/5 transition-colors">
                 <div>
                     <p className="font-bold text-blue-300">{item.userInput.user_idea.substring(0, 50)}...</p>
                     <p className="text-xs text-slate-400">{new Date(item.date).toLocaleString('ar-SA')}</p>
@@ -43,20 +43,20 @@ const HistoryCard: React.FC<{ item: HistoryItem; onDelete: (id: string) => void;
                 <ChevronDownIcon className={`w-6 h-6 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
             </button>
             {isExpanded && (
-                <div className="p-4 border-t border-slate-700 space-y-4">
+                <div className="p-4 border-t border-white/10 space-y-4">
                     {item.generatedImage && (
                         <img src={`data:image/jpeg;base64,${item.generatedImage}`} alt="Generated" className="rounded-lg w-full max-w-sm mx-auto" />
                     )}
                      <div>
                         <h4 className="font-semibold text-teal-300 mb-1">نص البوست:</h4>
-                        <div className="bg-slate-900 p-3 rounded-md relative">
+                        <div className="glass-panel-darker p-3 rounded-md relative">
                             <p className="text-slate-200 whitespace-pre-wrap">{item.apiResponse.contentCreation.post_text}</p>
                             <div className="absolute top-2 left-2"><CopyButton textToCopy={item.apiResponse.contentCreation.post_text} /></div>
                         </div>
                     </div>
                      <div>
                         <h4 className="font-semibold text-purple-300 mb-1">فكرة الخطوة التالية:</h4>
-                         <div className="bg-slate-900 p-3 rounded-md relative">
+                         <div className="glass-panel-darker p-3 rounded-md relative">
                             <p className="text-slate-200">{item.apiResponse.strategicInsights.next_step_idea}</p>
                             <div className="absolute top-2 left-2"><CopyButton textToCopy={item.apiResponse.strategicInsights.next_step_idea} /></div>
                         </div>
@@ -105,7 +105,7 @@ const History: React.FC = () => {
             ))}
         </div>
       ) : (
-        <div className="text-center bg-slate-800 p-8 rounded-2xl border border-slate-700">
+        <div className="text-center glass-panel p-8 rounded-2xl">
             <p className="text-slate-400">لا يوجد شيء في سجلك حتى الآن.</p>
             <p className="text-slate-500 text-sm mt-1">ابدأ بتوليد محتوى جديد وستجده هنا.</p>
         </div>

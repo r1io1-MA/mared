@@ -20,10 +20,10 @@ const ScamperCard: React.FC<{ suggestion: ScamperSuggestion; }> = ({ suggestion 
 
   return (
     <div
-      className={`w-full text-right p-4 bg-slate-800 rounded-lg border-2 ${borderColor} transition-all duration-200`}
+      className={`w-full text-right p-4 bg-slate-800/60 rounded-lg border-2 ${borderColor} transition-all duration-200`}
     >
       <div className="flex items-start gap-4">
-        <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-extrabold text-lg ${borderColor.replace('border-', 'text-')}`}>
+        <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-slate-700/80 flex items-center justify-center font-extrabold text-lg ${borderColor.replace('border-', 'text-')}`}>
           {suggestion.letter}
         </div>
         <div className="flex-1">
@@ -72,12 +72,12 @@ const ScamperPage: React.FC = () => {
                 <p className="text-slate-400 mt-2">أدخل أي خطاف (Hook)، وشاهد المارد يحوله إلى 7 خطافات جديدة ومبتكرة.</p>
             </div>
 
-            <div className="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 space-y-4">
+            <div className="glass-panel p-6 rounded-2xl shadow-lg space-y-4">
                 <textarea
                     value={originalHook}
                     onChange={(e) => setOriginalHook(e.target.value)}
                     rows={3}
-                    className="w-full p-3 bg-slate-900 border border-slate-600 rounded-lg focus:ring-2 focus:ring-yellow-500 transition-colors"
+                    className="w-full p-3 glass-input rounded-lg"
                     placeholder="اكتب هنا الخطاف (Hook) الأصلي..."
                 />
                 <button

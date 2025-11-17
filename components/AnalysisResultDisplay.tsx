@@ -7,7 +7,7 @@ interface AnalysisResultDisplayProps {
 }
 
 const StatDisplay: React.FC<{ label: string; value: string | number }> = ({ label, value }) => (
-  <div className="bg-slate-900/50 p-4 rounded-lg text-center">
+  <div className="glass-panel-darker p-4 rounded-lg text-center">
     <p className="text-sm text-slate-400">{label}</p>
     <p className="text-2xl font-bold text-white">{value}</p>
   </div>
@@ -21,7 +21,7 @@ const AnalysisResultDisplay: React.FC<AnalysisResultDisplayProps> = ({ result })
         <StatDisplay label="متوسط الإعجابات" value={result.avgLikes.toLocaleString('ar-SA')} />
         <StatDisplay label="معدل التفاعل" value={result.engagementRate} />
       </div>
-      <div className="bg-slate-900/50 p-4 rounded-lg border border-yellow-500/30">
+      <div className="glass-panel-darker p-4 rounded-lg border border-yellow-500/30">
         <h4 className="flex items-center gap-2 font-bold text-yellow-300 mb-2">
           <LightbulbIcon className="w-5 h-5" />
           تحليل المارد

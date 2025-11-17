@@ -27,10 +27,10 @@ const ScamperCard: React.FC<{ suggestion: ScamperSuggestion; onClick: () => void
   return (
     <button
       onClick={onClick}
-      className={`w-full text-right p-4 bg-slate-800 rounded-lg border-2 ${borderColor} hover:bg-slate-700/50 transition-all duration-200 transform hover:scale-[1.02]`}
+      className={`w-full text-right p-4 bg-slate-800/60 rounded-lg border-2 ${borderColor} hover:bg-slate-700/70 transition-all duration-200 transform hover:scale-[1.02]`}
     >
       <div className="flex items-start gap-4">
-        <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center font-extrabold text-lg ${borderColor.replace('border-', 'text-')}`}>
+        <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-slate-700/80 flex items-center justify-center font-extrabold text-lg ${borderColor.replace('border-', 'text-')}`}>
           {suggestion.letter}
         </div>
         <div>
@@ -84,10 +84,10 @@ const SCAMPERModal: React.FC<SCAMPERModalProps> = ({ isOpen, onClose, originalPo
       onClick={onClose}
     >
       <div
-        className="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col"
+        className="glass-panel rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        <header className="flex items-center justify-between p-4 border-b border-slate-700 flex-shrink-0">
+        <header className="flex items-center justify-between p-4 border-b border-white/10 flex-shrink-0">
           <div className="flex items-center gap-3">
             <LightbulbIcon className="w-8 h-8 text-yellow-300" />
             <div>
@@ -97,7 +97,7 @@ const SCAMPERModal: React.FC<SCAMPERModalProps> = ({ isOpen, onClose, originalPo
                  <p className="text-xs text-slate-400">حوّل فكرتك إلى 7 خطافات جديدة</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-800 transition-colors">
+          <button onClick={onClose} className="p-2 rounded-full hover:bg-white/10 transition-colors">
             <CloseIcon className="w-6 h-6 text-slate-400" />
           </button>
         </header>

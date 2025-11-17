@@ -55,11 +55,11 @@ const InputForm: React.FC<InputFormProps> = ({ userInput, setUserInput, onGenera
   
   const isFormValid = userInput.user_idea.trim() !== '' && userInput.brand_voice.tone.trim() !== '' && userInput.brand_voice.audience.trim() !== '' && userInput.brand_voice.goals.trim() !== '';
 
-  const selectStyles = "w-full p-2 bg-slate-700 border border-slate-600 rounded-md focus:ring-1 focus:ring-teal-500";
-  const inputStyles = "w-full p-2 bg-slate-700 border border-slate-600 rounded-md focus:ring-1 focus:ring-teal-500";
+  const selectStyles = "w-full p-2 glass-input rounded-md focus:ring-1 focus:ring-teal-500";
+  const inputStyles = "w-full p-2 glass-input rounded-md focus:ring-1 focus:ring-teal-500";
 
   return (
-    <div className="bg-slate-800 p-6 rounded-2xl shadow-lg border border-slate-700 space-y-6">
+    <div className="glass-panel p-6 rounded-2xl shadow-lg space-y-6">
       <div>
         <label htmlFor="user_idea" className="flex items-center gap-2 text-lg font-bold mb-2 text-blue-300">
           <PenIcon className="w-6 h-6" />
@@ -71,12 +71,12 @@ const InputForm: React.FC<InputFormProps> = ({ userInput, setUserInput, onGenera
           value={userInput.user_idea}
           onChange={handleInputChange}
           rows={4}
-          className="w-full p-3 bg-slate-900 border border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+          className="w-full p-3 glass-input rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
           placeholder="مثال: إطلاق منتج جديد، نصائح للعناية بالبشرة، إعلان عن خصومات..."
         />
       </div>
 
-      <div className="space-y-4 p-4 border border-slate-700 rounded-lg bg-slate-900/50">
+      <div className="space-y-4 p-4 rounded-lg glass-panel-darker">
         <div className="flex justify-between items-center">
              <h3 className="flex items-center gap-2 text-lg font-bold text-teal-300">
                 <BrandIcon className="w-6 h-6" />
@@ -152,7 +152,7 @@ const InputForm: React.FC<InputFormProps> = ({ userInput, setUserInput, onGenera
           value={userInput.context_vectors}
           onChange={handleInputChange}
           rows={5}
-          className="w-full p-3 bg-slate-900 border border-slate-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+          className="w-full p-3 glass-input rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
           placeholder="ألصق هنا 1-3 أمثلة من أفضل منشوراتك السابقة لمساعدة المارد على محاكاة أسلوبك."
         />
       </div>
